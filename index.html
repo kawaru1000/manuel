@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva de citas</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="booking">
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Agenda inteligente</p>
+      <h1>Reserva tu cita en segundos</h1>
+      <p class="lead">
+        Elige el servicio, profesional y horario que mejor se adapten a ti. Recibirás una
+        confirmación inmediata.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="#reserva">Reservar ahora</a>
+        <a class="btn btn--ghost" href="admin.html">Panel de administración</a>
+      </div>
+    </div>
+    <div class="hero__illustration" aria-hidden="true">
+      <div class="card">Citas sincronizadas</div>
+      <div class="badge">Horarios actualizados</div>
+      <div class="bubble">Profesionales disponibles</div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel" id="reserva">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Formulario</p>
+          <h2>Completa tu reserva</h2>
+        </div>
+        <p class="hint">Los horarios se actualizan en tiempo real según la disponibilidad.</p>
+      </div>
+      <form id="booking-form" class="stack" autocomplete="off">
+        <label class="field">
+          <span>Tu nombre</span>
+          <input type="text" name="client" placeholder="Nombre y apellido" required />
+        </label>
+
+        <label class="field">
+          <span>Servicio</span>
+          <select name="service" id="service-select" required></select>
+        </label>
+
+        <label class="field">
+          <span>Profesional</span>
+          <select name="professional" id="professional-select" required></select>
+        </label>
+
+        <div class="field-group">
+          <label class="field">
+            <span>Día</span>
+            <select name="day" id="day-select" required></select>
+          </label>
+          <label class="field">
+            <span>Hora</span>
+            <select name="time" id="time-select" required></select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Notas</span>
+          <textarea name="notes" rows="3" placeholder="Preferencias o comentarios"></textarea>
+        </label>
+
+        <button class="btn" type="submit">Confirmar reserva</button>
+      </form>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Agenda</p>
+          <h2>Próximas reservas</h2>
+        </div>
+        <p class="hint">Las reservas incluyen el detalle del servicio y el profesional.</p>
+      </div>
+      <ul id="booking-list" class="list" data-empty="No hay reservas registradas"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Panel de gestión disponible en <a href="admin.html">admin.html</a></p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

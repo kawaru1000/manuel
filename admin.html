@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de administración</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="admin">
+  <header class="hero hero--compact">
+    <div class="hero__content">
+      <p class="eyebrow">Panel</p>
+      <h1>Configura tu agenda</h1>
+      <p class="lead">
+        Gestiona servicios, profesionales y horarios disponibles. Los cambios se reflejan
+        automáticamente en el formulario de reserva.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="index.html">Volver a reservas</a>
+      </div>
+    </div>
+    <div class="hero__illustration" aria-hidden="true">
+      <div class="card">Servicios + Profesionales</div>
+      <div class="badge">Bloques de horario</div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Servicios</p>
+          <h2>Catálogo disponible</h2>
+        </div>
+        <p class="hint">Añade servicios con duración y precio sugerido.</p>
+      </div>
+      <form id="service-form" class="stack">
+        <label class="field">
+          <span>Nombre del servicio</span>
+          <input type="text" name="name" placeholder="Corte, masaje, consulta..." required />
+        </label>
+        <div class="field-group">
+          <label class="field">
+            <span>Duración (min)</span>
+            <input type="number" name="duration" min="15" step="15" value="60" required />
+          </label>
+          <label class="field">
+            <span>Precio sugerido</span>
+            <input type="number" name="price" min="0" step="10" value="0" />
+          </label>
+        </div>
+        <button class="btn" type="submit">Guardar servicio</button>
+      </form>
+      <ul id="service-list" class="list" data-empty="Agrega tu primer servicio"></ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Profesionales</p>
+          <h2>Equipo y especialidades</h2>
+        </div>
+        <p class="hint">Selecciona los servicios que cada profesional puede realizar.</p>
+      </div>
+      <form id="professional-form" class="stack">
+        <label class="field">
+          <span>Nombre</span>
+          <input type="text" name="name" placeholder="Ej. Laura Gómez" required />
+        </label>
+        <label class="field">
+          <span>Servicios que realiza</span>
+          <div id="professional-services" class="pill-group" aria-live="polite"></div>
+        </label>
+        <button class="btn" type="submit">Guardar profesional</button>
+      </form>
+      <ul id="professional-list" class="list" data-empty="Agrega al menos un profesional"></ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <p class="eyebrow">Horarios</p>
+          <h2>Días y horas disponibles</h2>
+        </div>
+        <p class="hint">Asigna bloques de horarios por profesional y día.</p>
+      </div>
+      <form id="slot-form" class="stack">
+        <div class="field-group">
+          <label class="field">
+            <span>Profesional</span>
+            <select name="professional" id="slot-professional" required></select>
+          </label>
+          <label class="field">
+            <span>Día</span>
+            <input type="date" name="day" required />
+          </label>
+        </div>
+        <label class="field">
+          <span>Horarios disponibles (separados por comas)</span>
+          <input type="text" name="times" placeholder="10:00, 11:00, 12:30" required />
+        </label>
+        <button class="btn" type="submit">Guardar disponibilidad</button>
+      </form>
+      <ul id="slot-list" class="list" data-empty="Aún no hay horarios publicados"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Los datos se guardan en tu navegador y se comparten con la pantalla de reservas.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
